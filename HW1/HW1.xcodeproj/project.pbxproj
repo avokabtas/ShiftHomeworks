@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		86C2D94F2BC9045A0073BBB3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C2D94E2BC9045A0073BBB3 /* main.swift */; };
+		86C2D9762BCA55A50073BBB3 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C2D9752BCA55A50073BBB3 /* Car.swift */; };
+		86C2D9782BCA56240073BBB3 /* Body.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C2D9772BCA56240073BBB3 /* Body.swift */; };
+		86C2D97A2BCA566E0073BBB3 /* MenuInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C2D9792BCA566E0073BBB3 /* MenuInterface.swift */; };
+		86C2D97E2BCA5BD50073BBB3 /* MenuFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C2D97D2BCA5BD50073BBB3 /* MenuFunctions.swift */; };
+		86C2D9802BCA75060073BBB3 /* Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C2D97F2BCA75060073BBB3 /* Interface.swift */; };
+		86C2D9822BCA78340073BBB3 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C2D9812BCA78340073BBB3 /* ErrorMessage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +31,12 @@
 /* Begin PBXFileReference section */
 		86C2D94B2BC9045A0073BBB3 /* HW1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HW1; sourceTree = BUILT_PRODUCTS_DIR; };
 		86C2D94E2BC9045A0073BBB3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		86C2D9752BCA55A50073BBB3 /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
+		86C2D9772BCA56240073BBB3 /* Body.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Body.swift; sourceTree = "<group>"; };
+		86C2D9792BCA566E0073BBB3 /* MenuInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuInterface.swift; sourceTree = "<group>"; };
+		86C2D97D2BCA5BD50073BBB3 /* MenuFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuFunctions.swift; sourceTree = "<group>"; };
+		86C2D97F2BCA75060073BBB3 /* Interface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interface.swift; sourceTree = "<group>"; };
+		86C2D9812BCA78340073BBB3 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +69,12 @@
 		86C2D94D2BC9045A0073BBB3 /* HW1 */ = {
 			isa = PBXGroup;
 			children = (
+				86C2D9752BCA55A50073BBB3 /* Car.swift */,
+				86C2D9772BCA56240073BBB3 /* Body.swift */,
+				86C2D97F2BCA75060073BBB3 /* Interface.swift */,
+				86C2D9812BCA78340073BBB3 /* ErrorMessage.swift */,
+				86C2D97D2BCA5BD50073BBB3 /* MenuFunctions.swift */,
+				86C2D9792BCA566E0073BBB3 /* MenuInterface.swift */,
 				86C2D94E2BC9045A0073BBB3 /* main.swift */,
 			);
 			path = HW1;
@@ -120,7 +138,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86C2D97A2BCA566E0073BBB3 /* MenuInterface.swift in Sources */,
+				86C2D9822BCA78340073BBB3 /* ErrorMessage.swift in Sources */,
+				86C2D9782BCA56240073BBB3 /* Body.swift in Sources */,
+				86C2D9762BCA55A50073BBB3 /* Car.swift in Sources */,
 				86C2D94F2BC9045A0073BBB3 /* main.swift in Sources */,
+				86C2D97E2BCA5BD50073BBB3 /* MenuFunctions.swift in Sources */,
+				86C2D9802BCA75060073BBB3 /* Interface.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
