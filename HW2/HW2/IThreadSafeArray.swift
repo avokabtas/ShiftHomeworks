@@ -15,6 +15,6 @@ protocol IThreadSafeArray {
     
     func append(_ item: T)
     func remove(at index: Int)
-    subscript(index: Int) -> T { get }
+    subscript(index: Int) -> T? { get }
     func contains(_ element: T) -> Bool
 }

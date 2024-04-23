@@ -7,13 +7,14 @@
 
 import Foundation
 
-func testRemoveAndContains() {
-    var array = ThreadSafeArray<Int>()
+func testMethods() {
+    let array = ThreadSafeArray<Int>()
     
     for i in 0...10 {
         array.append(i)
     }
     
+    // remove
     print("Массив до удаления:")
     for i in 0..<array.count {
         print(i, terminator: " ")
@@ -29,10 +30,19 @@ func testRemoveAndContains() {
     }
     print()
     
+    // contains
     let found = array.contains(5) ? "найден" : "не найден"
     let notFound = array.contains(100) ? "найден" : "не найден"
     print("Элемент 5 \(found) в массиве.")
     print("Элемент 100 \(notFound) в массиве.")
+    
+    // subscript
+    let subsFound = array[2]
+    guard let subsFound = subsFound else { return }
+    print("Subscript: \(subsFound)")
+    
+    let subsNotFound = array[10]
+    guard let subsNotFound = subsNotFound else { return }
 }
 
 func testTreadSafeArray() {
@@ -69,8 +79,8 @@ func testTreadSafeArray() {
 func runApp() {
     print("--- Тестирование добавления элементов в массив ---")
     testTreadSafeArray()
-    print("--- Тестирование методов remove и contains ---")
-    testRemoveAndContains()
+    print("--- Тестирование методов ---")
+    testMethods()
 }
 
 runApp()

@@ -43,7 +43,7 @@ final class ThreadSafeArray<T: Equatable>: IThreadSafeArray {
     func remove(at index: Int) {
         queue.async(flags: .barrier) {
             guard !self.array.isEmpty && index >= 0 && index < self.array.count else {
-                print("Ошибка: Индекс выходит за пределы массива!")
+                print(Error.outOfRange.rawValue)
                 return
             }
             self.array.remove(at: index)
@@ -51,10 +51,16 @@ final class ThreadSafeArray<T: Equatable>: IThreadSafeArray {
     }
     
     /// Возвращает элемент с указанным индексом
-    subscript(index: Int) -> T {
+    subscript(index: Int) -> T? {
+        var result: T?
         queue.sync {
-            self.array[index]
+            guard index >= 0 && index < self.array.count else {
+                print(Error.outOfRange.rawValue)
+                return
+            }
+            result = self.array[index]
         }
+        return result
     }
     
     /// Метод проверки наличия элемента в коллекции. Возвращает true при наличии элемента в коллекции

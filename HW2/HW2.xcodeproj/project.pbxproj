@@ -10,6 +10,7 @@
 		86C2D9902BD2809F0073BBB3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C2D98F2BD2809F0073BBB3 /* main.swift */; };
 		86C2D9972BD3CE200073BBB3 /* IThreadSafeArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C2D9962BD3CE200073BBB3 /* IThreadSafeArray.swift */; };
 		86C2D9992BD3CE350073BBB3 /* ThreadSafeArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C2D9982BD3CE350073BBB3 /* ThreadSafeArray.swift */; };
+		86C2D99B2BD764800073BBB3 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C2D99A2BD764800073BBB3 /* Error.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +30,7 @@
 		86C2D98F2BD2809F0073BBB3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		86C2D9962BD3CE200073BBB3 /* IThreadSafeArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IThreadSafeArray.swift; sourceTree = "<group>"; };
 		86C2D9982BD3CE350073BBB3 /* ThreadSafeArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadSafeArray.swift; sourceTree = "<group>"; };
+		86C2D99A2BD764800073BBB3 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 		86C2D98E2BD2809F0073BBB3 /* HW2 */ = {
 			isa = PBXGroup;
 			children = (
+				86C2D99A2BD764800073BBB3 /* Error.swift */,
 				86C2D9962BD3CE200073BBB3 /* IThreadSafeArray.swift */,
 				86C2D9982BD3CE350073BBB3 /* ThreadSafeArray.swift */,
 				86C2D98F2BD2809F0073BBB3 /* main.swift */,
@@ -126,6 +129,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86C2D99B2BD764800073BBB3 /* Error.swift in Sources */,
 				86C2D9972BD3CE200073BBB3 /* IThreadSafeArray.swift in Sources */,
 				86C2D9992BD3CE350073BBB3 /* ThreadSafeArray.swift in Sources */,
 				86C2D9902BD2809F0073BBB3 /* main.swift in Sources */,
