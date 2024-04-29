@@ -22,13 +22,14 @@ class TabBarController: UITabBarController {
         let hardSkillsVC = HardSkillsViewController()
         let hobbyVC = HobbyViewController()
         
-        profileVC.title = "Профиль"
-        hardSkillsVC.title = "Навыки"
-        hobbyVC.title = "Хобби"
+        let profileIcon = UIImage(systemName: "person")
+        let hardSkillsIcon = UIImage(systemName: "laptopcomputer")
+        let hobbyIcon = UIImage(systemName: "heart")
         
-        // Добавляем контроллеры в массив viewControllers
+        profileVC.tabBarItem = UITabBarItem(title: "Профиль", image: profileIcon, selectedImage: nil)
+        hardSkillsVC.tabBarItem = UITabBarItem(title: "Навыки", image: hardSkillsIcon, selectedImage: nil)
+        hobbyVC.tabBarItem = UITabBarItem(title: "Хобби", image: hobbyIcon, selectedImage: nil)
+        
         self.viewControllers = [profileVC, hardSkillsVC, hobbyVC]
     }
-    
-    
 }
