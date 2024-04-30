@@ -11,7 +11,10 @@ struct Hobby {
     let readBooks: String
     let run: String
     let footballFan: String
+    let videogames: String
+    
     let readBooksPhoto: String
     let runPhoto: String
     let footballFunPhoto: String
+    let videogamesPhoto: String
 }

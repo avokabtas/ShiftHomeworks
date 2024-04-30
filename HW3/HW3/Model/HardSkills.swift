@@ -9,6 +9,7 @@ import Foundation
 
 struct HardSkills {
     let experience: String
-    let languages: String
+    let techStack: [String]
     let expectations: String
 }
+
