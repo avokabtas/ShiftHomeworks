@@ -70,7 +70,6 @@
 			children = (
 				86C2D9E42BDF485E0073BBB3 /* App */,
 				86C2D9E72BDF52BC0073BBB3 /* Controller */,
-				86C2D9D62BDF45840073BBB3 /* Main.storyboard */,
 				86C2D9EF2BDF5B0A0073BBB3 /* Model */,
 				86C2D9E82BDF52E40073BBB3 /* Resources */,
 				86C2D9DE2BDF45860073BBB3 /* Info.plist */,
@@ -102,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				86C2D9D92BDF45860073BBB3 /* Assets.xcassets */,
+				86C2D9D62BDF45840073BBB3 /* Main.storyboard */,
 				86C2D9DB2BDF45860073BBB3 /* LaunchScreen.storyboard */,
 			);
 			path = Resources;

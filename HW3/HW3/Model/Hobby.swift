@@ -8,13 +8,10 @@
 import Foundation
 
 struct Hobby {
+    let description: String
     let readBooks: String
     let run: String
     let footballFan: String
     let videogames: String
-    
-    let readBooksPhoto: String
-    let runPhoto: String
-    let footballFunPhoto: String
-    let videogamesPhoto: String
+    let takeAPhoto: String
 }
