@@ -83,11 +83,6 @@ class HardSkillsViewController: UIViewController {
         techStackLabel.textAlignment = .natural
         expectationsLabel.textAlignment = .natural
         
-        mainTitleLabel.numberOfLines = 1
-        experienceTitleLabel.numberOfLines = 1
-        techStackTitleLabel.numberOfLines = 1
-        expectationsTitleLabel.numberOfLines = 1
-        
         experienceLabel.numberOfLines = 0
         techStackLabel.numberOfLines = 0
         expectationsLabel.numberOfLines = 0
