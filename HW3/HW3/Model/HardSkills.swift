@@ -12,4 +12,3 @@ struct HardSkills {
     let techStack: [String]
     let expectations: String
 }
-

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		86B16EB02BE25133006D8A92 /* LabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B16EAF2BE25133006D8A92 /* LabelStyle.swift */; };
 		86C2D9D12BDF45840073BBB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C2D9D02BDF45840073BBB3 /* AppDelegate.swift */; };
 		86C2D9D32BDF45840073BBB3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C2D9D22BDF45840073BBB3 /* SceneDelegate.swift */; };
 		86C2D9D52BDF45840073BBB3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C2D9D42BDF45840073BBB3 /* ProfileViewController.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		86B16EAF2BE25133006D8A92 /* LabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LabelStyle.swift; path = HW3/Controller/LabelStyle.swift; sourceTree = SOURCE_ROOT; };
 		86C2D9CD2BDF45840073BBB3 /* HW3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HW3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86C2D9D02BDF45840073BBB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86C2D9D22BDF45840073BBB3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				86C2D9D42BDF45840073BBB3 /* ProfileViewController.swift */,
 				86C2D9F02BDF5E900073BBB3 /* HardSkillsViewController.swift */,
 				86C2D9F22BDF5EC10073BBB3 /* HobbyViewController.swift */,
+				86B16EAF2BE25133006D8A92 /* LabelStyle.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				86C2D9EA2BDF5ADB0073BBB3 /* Profile.swift in Sources */,
 				86C2D9F32BDF5EC10073BBB3 /* HobbyViewController.swift in Sources */,
 				86C2D9EE2BDF5B010073BBB3 /* Hobby.swift in Sources */,
+				86B16EB02BE25133006D8A92 /* LabelStyle.swift in Sources */,
 				86C2D9E62BDF492B0073BBB3 /* TabBarController.swift in Sources */,
 				86C2D9D12BDF45840073BBB3 /* AppDelegate.swift in Sources */,
 				86C2D9EC2BDF5AEE0073BBB3 /* HardSkills.swift in Sources */,

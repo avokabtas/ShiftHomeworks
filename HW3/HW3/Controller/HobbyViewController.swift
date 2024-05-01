@@ -57,17 +57,17 @@ class HobbyViewController: UIViewController {
     }
     
     private func setupBackground() {
-        view.backgroundColor = .white
+        view.backgroundColor = LabelStyle.backgroundColorVC
     }
     
     private func setupStyleLabels() {
-        mainTitleLabel.font = .systemFont(ofSize: 25, weight: .bold)
-        descriptionLabel.font = .systemFont(ofSize: 20, weight: .bold)
-        readBooksLabel.font = .systemFont(ofSize: 16)
-        runLabel.font = .systemFont(ofSize: 16)
-        footballFanLabel.font = .systemFont(ofSize: 16)
-        videogamesLabel.font = .systemFont(ofSize: 16)
-        takeAPhotoLabel.font = .systemFont(ofSize: 16)
+        mainTitleLabel.font = LabelStyle.mainTitleFont
+        descriptionLabel.font = LabelStyle.titleFont
+        readBooksLabel.font = LabelStyle.contentFont
+        runLabel.font = LabelStyle.contentFont
+        footballFanLabel.font = LabelStyle.contentFont
+        videogamesLabel.font = LabelStyle.contentFont
+        takeAPhotoLabel.font = LabelStyle.contentFont
         
         mainTitleLabel.textAlignment = .center
         descriptionLabel.textAlignment = .natural
@@ -84,13 +84,13 @@ class HobbyViewController: UIViewController {
         videogamesLabel.numberOfLines = 0
         takeAPhotoLabel.numberOfLines = 0
         
-        mainTitleLabel.textColor = .black
-        descriptionLabel.textColor = .black
-        readBooksLabel.textColor = .black
-        runLabel.textColor = .black
-        footballFanLabel.textColor = .black
-        videogamesLabel.textColor = .black
-        takeAPhotoLabel.textColor = .black
+        mainTitleLabel.textColor = LabelStyle.textColor
+        descriptionLabel.textColor = LabelStyle.textColor
+        readBooksLabel.textColor = LabelStyle.textColor
+        runLabel.textColor = LabelStyle.textColor
+        footballFanLabel.textColor = LabelStyle.textColor
+        videogamesLabel.textColor = LabelStyle.textColor
+        takeAPhotoLabel.textColor = LabelStyle.textColor
     }
     
     private func setupLabels() {

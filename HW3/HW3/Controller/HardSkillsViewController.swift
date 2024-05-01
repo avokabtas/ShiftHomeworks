@@ -23,14 +23,14 @@ class HardSkillsViewController: UIViewController {
                                             Свой путь в IT начала осенью 2021 года со "Школы программирования 21" от Sber, где познакомилась с С, С++, Python, SQL, Linux.
                                             В школе понравилось делать приложения с UI частью: С++ и фреймворк Qt, но инструменты не зашли 🙃 Поэтому обратила внимание на iOS разработку и в 2023 году начала самостоятельно изучать Swift.
                                             """,
-                                            techStack: ["Swift",
-                                                       "SwiftUI",
-                                                       "UIKit",
-                                                       "URLSession",
-                                                       "GCD",
-                                                       "Cocoapods",
-                                                       "Swift Package Manager",
-                                                       "Git"],
+                                             techStack: ["Swift",
+                                                         "SwiftUI",
+                                                         "UIKit",
+                                                         "URLSession",
+                                                         "GCD",
+                                                         "Cocoapods",
+                                                         "Swift Package Manager",
+                                                         "Git"],
                                              expectations: """
                                              Хочу восполнить пробелы, систематизировать свои знания, освоить новые инструменты.
                                              Получить советы и best practice от опытных iOS-разработчиков. И главное стать частью команды ЦФТ.
@@ -61,18 +61,18 @@ class HardSkillsViewController: UIViewController {
     }
     
     private func setupBackground() {
-        view.backgroundColor = .white
+        view.backgroundColor = LabelStyle.backgroundColorVC
     }
-
+    
     private func setupStyleLabels() {
-        mainTitleLabel.font = .systemFont(ofSize: 25, weight: .bold)
-        experienceTitleLabel.font = .systemFont(ofSize: 20, weight: .bold)
-        techStackTitleLabel.font = .systemFont(ofSize: 20, weight: .bold)
-        expectationsTitleLabel.font = .systemFont(ofSize: 20, weight: .bold)
+        mainTitleLabel.font = LabelStyle.mainTitleFont
+        experienceTitleLabel.font = LabelStyle.titleFont
+        techStackTitleLabel.font = LabelStyle.titleFont
+        expectationsTitleLabel.font = LabelStyle.titleFont
         
-        experienceLabel.font = .systemFont(ofSize: 16)
-        techStackLabel.font = .systemFont(ofSize: 16)
-        expectationsLabel.font = .systemFont(ofSize: 16)
+        experienceLabel.font = LabelStyle.contentFont
+        techStackLabel.font = LabelStyle.contentFont
+        expectationsLabel.font = LabelStyle.contentFont
         
         mainTitleLabel.textAlignment = .center
         experienceTitleLabel.textAlignment = .left
@@ -86,15 +86,15 @@ class HardSkillsViewController: UIViewController {
         experienceLabel.numberOfLines = 0
         techStackLabel.numberOfLines = 0
         expectationsLabel.numberOfLines = 0
-
-        mainTitleLabel.textColor = .black
-        experienceTitleLabel.textColor = .black
-        techStackTitleLabel.textColor = .black
-        experienceTitleLabel.textColor = .black
         
-        experienceLabel.textColor = .black
-        techStackLabel.textColor = .black
-        expectationsLabel.textColor = .black
+        mainTitleLabel.textColor = LabelStyle.textColor
+        experienceTitleLabel.textColor = LabelStyle.textColor
+        techStackTitleLabel.textColor = LabelStyle.textColor
+        expectationsTitleLabel.textColor = LabelStyle.textColor
+        
+        experienceLabel.textColor = LabelStyle.textColor
+        techStackLabel.textColor = LabelStyle.textColor
+        expectationsLabel.textColor = LabelStyle.textColor
     }
     
     private func setupLabels() {
@@ -107,7 +107,7 @@ class HardSkillsViewController: UIViewController {
         techStackLabel.translatesAutoresizingMaskIntoConstraints = false
         expectationsLabel.translatesAutoresizingMaskIntoConstraints = false
     }
-
+    
     private func setupLayout() {
         view.addSubview(mainTitleLabel)
         view.addSubview(experienceTitleLabel)
