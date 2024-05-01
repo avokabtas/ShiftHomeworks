@@ -77,7 +77,6 @@ class HobbyViewController: UIViewController {
         videogamesLabel.textAlignment = .natural
         takeAPhotoLabel.textAlignment = .natural
         
-        mainTitleLabel.numberOfLines = 1
         descriptionLabel.numberOfLines = 0
         readBooksLabel.numberOfLines = 0
         runLabel.numberOfLines = 0
