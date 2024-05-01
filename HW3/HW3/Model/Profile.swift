@@ -15,11 +15,11 @@ struct Profile {
     let hometown: String
     let photo: String
     
-    static let defaultNameTitle = "Имя:"
-    static let defaultAgeTitle = "Возраст:"
-    static let defaultEducationTitle = "Образование:"
-    static let defaultCityOfResidenceTitle = "Город проживания:"
-    static let defaultHometownTitle = "Родной город:"
+    private static let defaultNameTitle = "Имя:"
+    private static let defaultAgeTitle = "Возраст:"
+    private static let defaultEducationTitle = "Образование:"
+    private static let defaultCityOfResidenceTitle = "Город проживания:"
+    private static let defaultHometownTitle = "Родной город:"
     
     init(name: String, age: String, education: String, cityOfResidence: String, hometown: String, photo: String) {
         self.name = "\(Profile.defaultNameTitle) \(name)"
