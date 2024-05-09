@@ -1,5 +1,5 @@
 //
-//  OrderModalViewController.swift
+//  OrderViewController.swift
 //  CollectionApp
 //
 //  Created by Aliia Satbakova  on 08.05.2024.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class OrderModalViewController: UIViewController {
+class OrderViewController: UIViewController {
     
     
     // TODO: Это Черновик!
@@ -16,7 +16,7 @@ class OrderModalViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .green
         
         let closeButton = UIButton(type: .system)
         closeButton.setTitle("Close", for: .normal)

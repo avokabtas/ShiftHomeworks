@@ -7,17 +7,14 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, DetailViewDelegate {
     
-    // TODO: Это Черновик!
-    // Сделать:
-    // - Картинка круглая UIImageView
-    // - Тип обуви label Type:
-    // - Для чего лучше использовать label Best For:
-    // - Цена Price:
-    // Кнопка "заказать"
+    // MARK: - Private Properties
     
-    var runningShoes: RunningShoes
+    private var runningShoes: RunningShoes
+    private var detailView: DetailView!
+    
+    // MARK: - Init
     
     init(runningShoes: RunningShoes) {
         self.runningShoes = runningShoes
@@ -28,11 +25,28 @@ class DetailViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Lifecycle Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         title = "\(runningShoes.brand) \(runningShoes.model)"
+        setupDetailView()
     }
     
+    // MARK: - Private Method
     
+    private func setupDetailView() {
+        detailView = DetailView()
+        detailView.delegate = self
+        view = detailView
+        detailView.configure(with: runningShoes)
+    }
+    
+    // MARK: - DetailViewDelegate
+    
+    func orderButtonTapped() {
+        let orderModalVC = OrderViewController(nibName: nil, bundle: nil)
+        self.present(orderModalVC, animated: true)
+    }
 }

@@ -14,7 +14,7 @@ class RunningShoesCollectionViewCell: UICollectionViewCell {
     
     static let identifier = String(describing: RunningShoesCollectionViewCell.self)
     
-    // MARK: - Private Properties
+    // MARK: - UI Elements
     
     private let shoesImageView: UIImageView = {
         let imageView = UIImageView()

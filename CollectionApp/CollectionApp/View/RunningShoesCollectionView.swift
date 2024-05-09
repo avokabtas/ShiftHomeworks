@@ -9,7 +9,7 @@ import UIKit
 
 class RunningShoesCollectionView: UIView {
     
-    // MARK: - Public Property
+    // MARK: - UI Elements
     
     lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
