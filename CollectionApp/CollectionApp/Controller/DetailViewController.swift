@@ -5,6 +5,7 @@
 //  Created by Aliia Satbakova  on 08.05.2024.
 //
 
+
 import UIKit
 
 class DetailViewController: UIViewController, DetailViewDelegate {
@@ -25,7 +26,7 @@ class DetailViewController: UIViewController, DetailViewDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Lifecycle Methods
+    // MARK: - Lifecycle Method
     
     override func viewDidLoad() {
         super.viewDidLoad()

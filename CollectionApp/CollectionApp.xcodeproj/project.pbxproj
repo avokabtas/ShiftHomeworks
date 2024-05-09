@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		867AC73A2BECBBF5002E96E0 /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867AC7392BECBBF5002E96E0 /* OrderView.swift */; };
 		86B16EBE2BE4A599006D8A92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B16EBD2BE4A599006D8A92 /* AppDelegate.swift */; };
 		86B16EC02BE4A599006D8A92 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B16EBF2BE4A599006D8A92 /* SceneDelegate.swift */; };
 		86B16EC22BE4A599006D8A92 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B16EC12BE4A599006D8A92 /* CollectionViewController.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		867AC7392BECBBF5002E96E0 /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OrderView.swift; path = CollectionApp/View/OrderView.swift; sourceTree = SOURCE_ROOT; };
 		86B16EBA2BE4A599006D8A92 /* CollectionApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollectionApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86B16EBD2BE4A599006D8A92 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86B16EBF2BE4A599006D8A92 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				86B8B8942BEB724E0079F0C0 /* RunningShoesCollectionView.swift */,
 				86B8B88A2BEB6E180079F0C0 /* RunningShoesViewCell.swift */,
 				86B8B8962BECACD00079F0C0 /* DetailView.swift */,
+				867AC7392BECBBF5002E96E0 /* OrderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 				86B16EBE2BE4A599006D8A92 /* AppDelegate.swift in Sources */,
 				86B8B88F2BEB6E870079F0C0 /* OrderViewController.swift in Sources */,
 				86B16EC02BE4A599006D8A92 /* SceneDelegate.swift in Sources */,
+				867AC73A2BECBBF5002E96E0 /* OrderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
