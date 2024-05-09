@@ -3,17 +3,30 @@
 //  CollectionApp
 //
 //  Created by Aliia Satbakova  on 09.05.2024.
-//
 
 import UIKit
 
 class DetailView: UIView {
-    
+
     // MARK: - Delegate
     
     weak var delegate: DetailViewDelegate?
     
     // MARK: - UI Elements
+
+    private lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.showsHorizontalScrollIndicator = false
+        return scrollView
+    }()
+    
+    private let contentView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()
@@ -102,18 +115,31 @@ class DetailView: UIView {
     // MARK: - Private Methods
     
     private func setupView() {
-        addSubview(imageView)
-        addSubview(typeTitleLabel)
-        addSubview(typeLabel)
-        addSubview(bestForTitleLabel)
-        addSubview(bestForLabel)
-        addSubview(priceTitleLabel)
-        addSubview(priceLabel)
-        addSubview(orderButton)
+        addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        contentView.addSubview(imageView)
+        contentView.addSubview(typeTitleLabel)
+        contentView.addSubview(typeLabel)
+        contentView.addSubview(bestForTitleLabel)
+        contentView.addSubview(bestForLabel)
+        contentView.addSubview(priceTitleLabel)
+        contentView.addSubview(priceLabel)
+        contentView.addSubview(orderButton)
         
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
-            imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            scrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentView.widthAnchor.constraint(equalTo: widthAnchor),
+            
+            imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
+            imageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             imageView.widthAnchor.constraint(equalToConstant: 400),
             imageView.heightAnchor.constraint(equalToConstant: 400),
             
@@ -138,19 +164,14 @@ class DetailView: UIView {
             orderButton.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 20),
             orderButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             orderButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            orderButton.heightAnchor.constraint(equalToConstant: 50)
+            orderButton.heightAnchor.constraint(equalToConstant: 50),
+            orderButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20)
         ])
     }
         
-    // MARK: - Action
+    // MARK: - Action Button
     
     @objc private func orderButtonTapped() {
         delegate?.orderButtonTapped()
     }
-}
-
-// MARK: - DetailViewDelegate
-
-protocol DetailViewDelegate: AnyObject {
-    func orderButtonTapped()
 }

@@ -22,12 +22,30 @@ class CollectionViewController: UIViewController {
         return view
     }()
     
-    // MARK: - LifeCycle
+    // MARK: - Lifecycle Method
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        contentView.collectionView.collectionViewLayout.invalidateLayout()
+    }
+    
+    // MARK: - Private Method
+    
+    private func setupView() {
         view.addSubview(contentView)
-        contentView.frame = view.bounds
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            contentView.topAnchor.constraint(equalTo: view.topAnchor),
+            contentView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
     }
 }
 
@@ -55,5 +73,16 @@ extension CollectionViewController: UICollectionViewDelegate {
         let selectedRunningShoes = runningShoesData[indexPath.item]
         let detailViewController = DetailViewController(runningShoes: selectedRunningShoes)
         navigationController?.pushViewController(detailViewController, animated: true)
+    }
+}
+
+// MARK: - Flow Layout Delegate
+
+extension CollectionViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let isPortrait = UIDevice.current.orientation.isPortrait
+        let screenWidth = UIScreen.main.bounds.width
+        let cellWidth = isPortrait ? screenWidth / 2 - 10 : screenWidth / 2 - 20
+        return CGSize(width: cellWidth, height: 200)
     }
 }

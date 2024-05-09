@@ -9,6 +9,8 @@ import UIKit
 
 class OrderView: UIView {
     
+    // MARK: - Delegate
+    
     weak var delegate: OrderViewDelegate?
     
     // MARK: - UI Elements
@@ -77,15 +79,9 @@ class OrderView: UIView {
         ])
     }
     
-    // MARK: - Action
+    // MARK: - Action Button
     
     @objc private func closeButtonTapped() {
         delegate?.closeButtonTapped()
     }
-}
-
-// MARK: - OrderViewDelegate
-
-protocol OrderViewDelegate: AnyObject {
-    func closeButtonTapped()
 }

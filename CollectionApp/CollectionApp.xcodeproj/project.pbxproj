@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		867AC73A2BECBBF5002E96E0 /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867AC7392BECBBF5002E96E0 /* OrderView.swift */; };
+		867AC73D2BECD6A8002E96E0 /* DetailViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867AC73C2BECD6A8002E96E0 /* DetailViewDelegate.swift */; };
+		867AC73F2BECD6D4002E96E0 /* OrderViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867AC73E2BECD6D4002E96E0 /* OrderViewDelegate.swift */; };
 		86B16EBE2BE4A599006D8A92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B16EBD2BE4A599006D8A92 /* AppDelegate.swift */; };
 		86B16EC02BE4A599006D8A92 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B16EBF2BE4A599006D8A92 /* SceneDelegate.swift */; };
 		86B16EC22BE4A599006D8A92 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B16EC12BE4A599006D8A92 /* CollectionViewController.swift */; };
@@ -23,6 +25,8 @@
 
 /* Begin PBXFileReference section */
 		867AC7392BECBBF5002E96E0 /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OrderView.swift; path = CollectionApp/View/OrderView.swift; sourceTree = SOURCE_ROOT; };
+		867AC73C2BECD6A8002E96E0 /* DetailViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewDelegate.swift; sourceTree = "<group>"; };
+		867AC73E2BECD6D4002E96E0 /* OrderViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewDelegate.swift; sourceTree = "<group>"; };
 		86B16EBA2BE4A599006D8A92 /* CollectionApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollectionApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86B16EBD2BE4A599006D8A92 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86B16EBF2BE4A599006D8A92 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +53,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		867AC73B2BECD679002E96E0 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				867AC73C2BECD6A8002E96E0 /* DetailViewDelegate.swift */,
+				867AC73E2BECD6D4002E96E0 /* OrderViewDelegate.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		86B16EB12BE4A599006D8A92 = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +84,7 @@
 				86B8B8912BEB703B0079F0C0 /* App */,
 				86B8B8902BEB702F0079F0C0 /* Controller */,
 				86B8B8932BEB72140079F0C0 /* View */,
+				867AC73B2BECD679002E96E0 /* Protocols */,
 				86B8B8892BEB3F490079F0C0 /* Model */,
 				86B8B8922BEB70530079F0C0 /* Resources */,
 				86B16ECB2BE4A599006D8A92 /* Info.plist */,
@@ -199,7 +213,9 @@
 				86B8B8972BECACD00079F0C0 /* DetailView.swift in Sources */,
 				86B16EC22BE4A599006D8A92 /* CollectionViewController.swift in Sources */,
 				86B8B8952BEB724E0079F0C0 /* RunningShoesCollectionView.swift in Sources */,
+				867AC73F2BECD6D4002E96E0 /* OrderViewDelegate.swift in Sources */,
 				86B8B88D2BEB6E5B0079F0C0 /* DetailViewController.swift in Sources */,
+				867AC73D2BECD6A8002E96E0 /* DetailViewDelegate.swift in Sources */,
 				86B8B88B2BEB6E180079F0C0 /* RunningShoesViewCell.swift in Sources */,
 				86B16EBE2BE4A599006D8A92 /* AppDelegate.swift in Sources */,
 				86B8B88F2BEB6E870079F0C0 /* OrderViewController.swift in Sources */,

@@ -15,8 +15,8 @@ class RunningShoesCollectionView: UIView {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         collectionView.register(RunningShoesCollectionViewCell.self, forCellWithReuseIdentifier: RunningShoesCollectionViewCell.identifier)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        // Установка пользовательского макета
-        collectionView.collectionViewLayout = setupFlowLayout()
+        collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        collectionView.collectionViewLayout.invalidateLayout()
         collectionView.backgroundColor = .white
         return collectionView
     }()
@@ -43,13 +43,5 @@ class RunningShoesCollectionView: UIView {
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
-    }
-    
-    private func setupFlowLayout() -> UICollectionViewFlowLayout {
-        let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: UIScreen.main.bounds.width / 2 - 10, height: 200)
-        layout.minimumInteritemSpacing = 5 // между ячейками
-        layout.minimumLineSpacing = 10 // между рядами
-        return layout
     }
 }
