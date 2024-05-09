@@ -4,71 +4,64 @@
 //
 //  Created by Aliia Satbakova  on 08.05.2024.
 //
+//
 
 import UIKit
 
 class RunningShoesCollectionViewCell: UICollectionViewCell {
     static let identifier = String(describing: RunningShoesCollectionViewCell.self)
     
-    // TODO: Это Черновик!
-    // Нужно сделать:
-    // Текст меньше - не влезает
-
+    let shoesImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 10
+        return imageView
+    }()
     
-    let imageShoesView = UIImageView()
-    let titleLabel = UILabel()
+    let titleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 14)
+        return label
+    }()
+    
+    private lazy var stackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [shoesImageView, titleLabel])
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.spacing = 8
+        return stackView
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupViews()
+        setupView()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupViews() {
-        // Configure image view
-        imageShoesView.contentMode = .scaleAspectFit
-        contentView.addSubview(imageShoesView)
+    private func setupView() {
+        contentView.addSubview(stackView)
         
-        // Configure label
-        titleLabel.textAlignment = .center
-        titleLabel.numberOfLines = 0
-        contentView.addSubview(titleLabel)
+        let contentMargin = contentView.layoutMarginsGuide
         
-        // Constraints
-        imageShoesView.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-//        let stackView = UIStackView(arrangedSubviews: [imageShoesView, titleLabel])
-//        stackView.axis = .vertical
-//        stackView.spacing = 8
-//        stackView.alignment = .center
-//        stackView.translatesAutoresizingMaskIntoConstraints = false
-//        contentView.addSubview(stackView)
-//        
-//        NSLayoutConstraint.activate([
-//            stackView.topAnchor.constraint(equalTo: contentView.topAnchor),
-//            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-//            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-//            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
-//        ])
         NSLayoutConstraint.activate([
-            imageShoesView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            imageShoesView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            imageShoesView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            imageShoesView.heightAnchor.constraint(equalTo: imageShoesView.widthAnchor),
+            stackView.topAnchor.constraint(equalTo: contentMargin.topAnchor),
+            stackView.leadingAnchor.constraint(equalTo: contentMargin.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: contentMargin.trailingAnchor),
+            stackView.bottomAnchor.constraint(equalTo: contentMargin.bottomAnchor),
             
-            titleLabel.topAnchor.constraint(equalTo: imageShoesView.bottomAnchor, constant: -8),
-            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            titleLabel.bottomAnchor.constraint(equalTo: contentMargin.bottomAnchor)
         ])
     }
     
     func configure(with runningShoes: RunningShoes) {
-        imageShoesView.image = UIImage(named: runningShoes.image)
-        titleLabel.text = "\(runningShoes.brand) \(runningShoes.model)\n"
+        shoesImageView.image = UIImage(named: runningShoes.image)
+        titleLabel.text = "\(runningShoes.brand) \(runningShoes.model)"
     }
 }
