@@ -9,9 +9,14 @@
 import UIKit
 
 class RunningShoesCollectionViewCell: UICollectionViewCell {
+    
+    // MARK: - Public Property
+    
     static let identifier = String(describing: RunningShoesCollectionViewCell.self)
     
-    let shoesImageView: UIImageView = {
+    // MARK: - Private Properties
+    
+    private let shoesImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
@@ -20,7 +25,7 @@ class RunningShoesCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
     
-    let titleLabel: UILabel = {
+    private let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
@@ -36,6 +41,8 @@ class RunningShoesCollectionViewCell: UICollectionViewCell {
         return stackView
     }()
     
+    // MARK: - Init
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -44,6 +51,8 @@ class RunningShoesCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Private Method
     
     private func setupView() {
         contentView.addSubview(stackView)
@@ -59,6 +68,8 @@ class RunningShoesCollectionViewCell: UICollectionViewCell {
             titleLabel.bottomAnchor.constraint(equalTo: contentMargin.bottomAnchor)
         ])
     }
+    
+    // MARK: - Public Method
     
     func configure(with runningShoes: RunningShoes) {
         shoesImageView.image = UIImage(named: runningShoes.image)
