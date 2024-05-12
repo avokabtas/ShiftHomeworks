@@ -19,7 +19,7 @@ class OrderView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Checkout"
-        label.font = UIFont.boldSystemFont(ofSize: 24)
+        label.font = .boldSystemFont(ofSize: 24)
         return label
     }()
     

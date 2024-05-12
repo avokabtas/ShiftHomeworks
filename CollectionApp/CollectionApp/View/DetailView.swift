@@ -8,13 +8,13 @@ import UIKit
 
 class DetailView: UIView {
     
-    // MARK: - Private Property
-    
-    //private let fontTitle: UIFont = UIFont.boldSystemFont(ofSize: 18)
-
     // MARK: - Delegate
     
     weak var delegate: DetailViewDelegate?
+    
+    // MARK: - Private Constants
+        
+    private let forTitle: CGFloat = 18
     
     // MARK: - UI Elements
 
@@ -40,48 +40,27 @@ class DetailView: UIView {
         return imageView
     }()
     
-    private let typeTitleLabel: UILabel = {
+    private func makeTitleLabel(textTitle: String, fontSize: CGFloat) -> UILabel {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .boldSystemFont(ofSize: 18)
-        label.text = "Type"
+        label.font = .boldSystemFont(ofSize: fontSize)
+        label.text = textTitle
         return label
-    }()
+    }
     
-    private let typeLabel: UILabel = {
+    private lazy var typeTitleLabel: UILabel = makeTitleLabel(textTitle: "Type", fontSize: forTitle)
+    private lazy var bestForTitleLabel: UILabel = makeTitleLabel(textTitle: "Best For", fontSize: forTitle)
+    private lazy var priceTitleLabel: UILabel = makeTitleLabel(textTitle: "Price", fontSize: forTitle)
+
+    private func makeDescriptionsLabels() -> UILabel {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
-    }()
+    }
     
-    private let bestForTitleLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .boldSystemFont(ofSize: 18)
-        label.text = "Best For"
-        return label
-    }()
-    
-    private let bestForLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private let priceTitleLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .boldSystemFont(ofSize: 18)
-        label.textAlignment = .center
-        label.text = "Price"
-        return label
-    }()
-    
-    private let priceLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    private lazy var typeLabel: UILabel = makeDescriptionsLabels()
+    private lazy var bestForLabel: UILabel = makeDescriptionsLabels()
+    private lazy var priceLabel: UILabel = makeDescriptionsLabels()
     
     private lazy var orderButton: UIButton = {
         let button = UIButton(type: .system)

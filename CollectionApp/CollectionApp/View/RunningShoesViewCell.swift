@@ -29,7 +29,7 @@ class RunningShoesCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
-        label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.font = .boldSystemFont(ofSize: 14)
         return label
     }()
     
