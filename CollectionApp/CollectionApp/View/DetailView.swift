@@ -7,6 +7,10 @@
 import UIKit
 
 class DetailView: UIView {
+    
+    // MARK: - Private Property
+    
+    //private let fontTitle: UIFont = UIFont.boldSystemFont(ofSize: 18)
 
     // MARK: - Delegate
     
@@ -39,7 +43,7 @@ class DetailView: UIView {
     private let typeTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.boldSystemFont(ofSize: 18)
+        label.font = .boldSystemFont(ofSize: 18)
         label.text = "Type"
         return label
     }()
@@ -53,7 +57,7 @@ class DetailView: UIView {
     private let bestForTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.boldSystemFont(ofSize: 18)
+        label.font = .boldSystemFont(ofSize: 18)
         label.text = "Best For"
         return label
     }()
@@ -67,7 +71,7 @@ class DetailView: UIView {
     private let priceTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.boldSystemFont(ofSize: 18)
+        label.font = .boldSystemFont(ofSize: 18)
         label.textAlignment = .center
         label.text = "Price"
         return label
@@ -84,7 +88,7 @@ class DetailView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Order", for: .normal)
         button.backgroundColor = .systemGreen
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 18)
         button.layer.cornerRadius = 10
         button.tintColor = .white
         button.addTarget(self, action: #selector(orderButtonTapped), for: .touchUpInside)

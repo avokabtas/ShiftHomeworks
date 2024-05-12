@@ -11,7 +11,7 @@ class OrderViewController: UIViewController, OrderViewDelegate {
     
     // MARK: - Private Property
     
-    private var orderView: OrderView!
+    private var orderView: OrderView?
     
     // MARK: - Lifecycle Method
     
@@ -23,11 +23,14 @@ class OrderViewController: UIViewController, OrderViewDelegate {
     // MARK: - Private Method
     
     private func setupOrderView() {
-        orderView = OrderView()
+        let orderView = OrderView()
         orderView.delegate = self
-        view = orderView
+        self.orderView = orderView
+        if let orderView = self.orderView {
+            view = orderView
+        }
     }
-    
+
     // MARK: - OrderViewDelegate
     
     func closeButtonTapped() {

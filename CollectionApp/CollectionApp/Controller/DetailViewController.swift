@@ -12,7 +12,7 @@ class DetailViewController: UIViewController, DetailViewDelegate {
     // MARK: - Private Properties
     
     private var runningShoes: RunningShoes
-    private var detailView: DetailView!
+    private var detailView: DetailView?
     
     // MARK: - Init
     
@@ -38,10 +38,13 @@ class DetailViewController: UIViewController, DetailViewDelegate {
     // MARK: - Private Method
     
     private func setupDetailView() {
-        detailView = DetailView()
+        let detailView = DetailView()
         detailView.delegate = self
-        view = detailView
-        detailView.configure(with: runningShoes)
+        self.detailView = detailView
+        if let detailView = self.detailView {
+            view = detailView
+            detailView.configure(with: runningShoes)
+        }
     }
     
     // MARK: - DetailViewDelegate
