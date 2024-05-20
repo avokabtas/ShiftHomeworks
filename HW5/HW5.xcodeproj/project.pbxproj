@@ -82,7 +82,7 @@
 				8643EED12BFB1A1500A88DBA /* ShoesCollectionScreen */,
 				8643EECD2BFB197100A88DBA /* ShoesDetailScreen */,
 				8643EECE2BFB198C00A88DBA /* ShoesOrderScreen */,
-				8643EEC92BFB180900A88DBA /* Recources */,
+				8643EEC92BFB180900A88DBA /* Resources */,
 				8643EECA2BFB181500A88DBA /* Base */,
 				8643EEA32BFB0EB600A88DBA /* Info.plist */,
 			);
@@ -98,12 +98,12 @@
 			path = App;
 			sourceTree = "<group>";
 		};
-		8643EEC92BFB180900A88DBA /* Recources */ = {
+		8643EEC92BFB180900A88DBA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				8643EE9E2BFB0EB600A88DBA /* Assets.xcassets */,
 			);
-			path = Recources;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		8643EECA2BFB181500A88DBA /* Base */ = {
