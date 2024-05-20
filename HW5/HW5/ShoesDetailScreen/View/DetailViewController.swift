@@ -59,6 +59,8 @@ extension DetailViewController: DetailViewDelegate {
     }
 }
 
+// MARK: - IDetailViewController
+
 extension DetailViewController: IDetailViewController {
     func present(_ viewController: UIViewController, animated: Bool) {
         super.present(viewController, animated: true)
