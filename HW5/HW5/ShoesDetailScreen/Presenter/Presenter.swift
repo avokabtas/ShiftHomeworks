@@ -11,14 +11,14 @@ protocol IPresenter: AnyObject {
     var title: String { get }
     func getRunningShoes() -> RunningShoes
     func orderButtonTapped()
-    func setView(_ view: DetailViewController)
+    func setView(_ view: IDetailViewController)
 }
 
 class Presenter: IPresenter {
     
     // MARK: - Private Properties
     
-    private weak var ui: DetailViewController?
+    private weak var ui: IDetailViewController?
     private var runningShoes: RunningShoes
     
     // MARK: - Init
@@ -35,7 +35,7 @@ class Presenter: IPresenter {
     
     // MARK: - Public Methods
     
-    func setView(_ view: DetailViewController) {
+    func setView(_ view: IDetailViewController) {
         self.ui = view
     }
     

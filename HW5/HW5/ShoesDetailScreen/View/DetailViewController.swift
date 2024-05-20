@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol IDetailViewController: AnyObject {
+    func present(_ viewController: UIViewController, animated: Bool)
+}
+
 class DetailViewController: UIViewController {
     
     // MARK: - Private Properties
@@ -52,5 +56,11 @@ class DetailViewController: UIViewController {
 extension DetailViewController: DetailViewDelegate {
     func orderButtonTapped() {
         presenter.orderButtonTapped()
+    }
+}
+
+extension DetailViewController: IDetailViewController {
+    func present(_ viewController: UIViewController, animated: Bool) {
+        super.present(viewController, animated: true)
     }
 }
