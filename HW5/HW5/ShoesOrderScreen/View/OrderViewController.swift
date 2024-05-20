@@ -9,12 +9,13 @@ import UIKit
 
 class OrderViewController: UIViewController {
     
-    // MARK: - Private Property
+    // MARK: - Private Properties
     
     private var orderView: OrderView?
     private var viewModel: ViewModel
     
     // MARK: - Init
+    
     init(viewModel: ViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -25,7 +26,7 @@ class OrderViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Lifecycle Method
+    // MARK: - Lifecycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +34,7 @@ class OrderViewController: UIViewController {
         makeViewModel()
     }
     
-    // MARK: - Private Method
+    // MARK: - Private Methods
     
     private func setupOrderView() {
         let orderView = OrderView()
@@ -46,8 +47,8 @@ class OrderViewController: UIViewController {
     }
     
     private func makeViewModel() {
-        viewModel.updateUI = { [weak self] orderMessage in
-            self?.orderView?.updateMessageLabel(orderMessage.message)
+        viewModel.updateUI = { [weak self] newData in
+            self?.orderView?.updateMessageLabel(newData.message)
         }
     }
 }
