@@ -39,15 +39,15 @@ class OrderViewController: UIViewController {
         let orderView = OrderView()
         orderView.delegate = self
         self.orderView = orderView
-        orderView.updateMessage(viewModel.initialMessage)
+        orderView.updateMessageLabel(viewModel.defaultMessage)
         if let orderView = self.orderView {
             view = orderView
         }
     }
     
     private func makeViewModel() {
-        viewModel.message = { [weak self] orderMessage in
-            self?.orderView?.updateMessage(orderMessage.message)
+        viewModel.updateUI = { [weak self] orderMessage in
+            self?.orderView?.updateMessageLabel(orderMessage.message)
         }
     }
 }

@@ -15,19 +15,28 @@ protocol IPresenter: AnyObject {
 }
 
 class Presenter: IPresenter {
+    
+    // MARK: - Private Properties
+    
     private weak var ui: DetailViewController?
     private var runningShoes: RunningShoes
+    
+    // MARK: - Init
     
     init(runningShoes: RunningShoes) {
         self.runningShoes = runningShoes
     }
     
-    func setView(_ view: DetailViewController) {
-        self.ui = view
-    }
+    // MARK: - Public Property
     
     var title: String {
         "\(runningShoes.brand) \(runningShoes.model)"
+    }
+    
+    // MARK: - Public Methods
+    
+    func setView(_ view: DetailViewController) {
+        self.ui = view
     }
     
     func getRunningShoes() -> RunningShoes {

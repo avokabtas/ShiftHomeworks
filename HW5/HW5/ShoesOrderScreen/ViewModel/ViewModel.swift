@@ -9,21 +9,29 @@ import Foundation
 
 class ViewModel {
     
+    // MARK: - Private Property
+    
     private var order: Order
     
-    let initialMessage: String
+    // MARK: - Public Properties
     
-    var message: ((Order) -> Void)?
+    let defaultMessage: String
+    
+    var updateUI: ((_ newDataToDisplay: Order) -> Void)?
+    
+    // MARK: - Init
     
     init() {
-        self.initialMessage = "For technical reasons, placing an order in the mobile application is not available 😔\nPlease order via phone: 22-00-788\nThank you!"
-        self.order = Order(message: initialMessage)
+        self.defaultMessage = "For technical reasons, placing an order in the mobile application is not available 😔\nPlease order via phone: 22-00-788\nThank you!"
+        self.order = Order(message: defaultMessage)
         startTimer()
     }
     
+    // MARK: - Private Methods
+    
     private func updateData() {
-        let updated = Order(message: initialMessage)
-        message?(updated)
+        let updated = Order(message: defaultMessage)
+        updateUI?(updated)
     }
     
     private func startTimer() {

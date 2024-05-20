@@ -81,7 +81,7 @@ class OrderView: UIView {
     
     // MARK: - Public Method
     
-    func updateMessage(_ message: String) {
+    func updateMessageLabel(_ message: String) {
         messageLabel.text = message
         print("Data updated!")
     }
