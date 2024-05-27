@@ -9,7 +9,7 @@ import Foundation
 
 protocol IPresenter: AnyObject {
     var title: String { get }
-    func getRunningShoes() -> RunningShoes
+    func configureUI()
     func orderButtonTapped()
     func setView(_ view: IDetailViewController)
 }
@@ -39,8 +39,8 @@ class Presenter: IPresenter {
         self.ui = view
     }
     
-    func getRunningShoes() -> RunningShoes {
-        return runningShoes
+    func configureUI() {
+        ui?.configureView(with: runningShoes)
     }
     
     func orderButtonTapped() {

@@ -9,6 +9,7 @@ import UIKit
 
 protocol IDetailViewController: AnyObject {
     func present(_ viewController: UIViewController, animated: Bool)
+    func configureView(with runningShoes: RunningShoes)
 }
 
 class DetailViewController: UIViewController {
@@ -38,6 +39,7 @@ class DetailViewController: UIViewController {
         view.backgroundColor = .white
         title = presenter.title
         setupDetailView()
+        presenter.configureUI()
     }
     
     // MARK: - Private Method
@@ -47,7 +49,6 @@ class DetailViewController: UIViewController {
         detailView.delegate = self
         self.detailView = detailView
         view = detailView
-        detailView.configure(with: presenter.getRunningShoes())
     }
 }
 
@@ -64,5 +65,9 @@ extension DetailViewController: DetailViewDelegate {
 extension DetailViewController: IDetailViewController {
     func present(_ viewController: UIViewController, animated: Bool) {
         super.present(viewController, animated: true)
+    }
+    
+    func configureView(with runningShoes: RunningShoes) {
+        detailView?.configure(with: runningShoes)
     }
 }
