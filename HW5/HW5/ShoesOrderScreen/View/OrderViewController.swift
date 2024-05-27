@@ -31,7 +31,7 @@ class OrderViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupOrderView()
-        makeViewModel()
+        setupViewModel()
     }
     
     // MARK: - Private Methods
@@ -46,7 +46,7 @@ class OrderViewController: UIViewController {
         }
     }
     
-    private func makeViewModel() {
+    private func setupViewModel() {
         viewModel.updateUI = { [weak self] newData in
             self?.orderView?.updateMessageLabel(newData.message)
         }
