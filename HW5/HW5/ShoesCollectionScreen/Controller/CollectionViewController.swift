@@ -15,10 +15,6 @@ class CollectionViewController: UIViewController {
     
     private lazy var contentView: RunningShoesCollectionView = {
         let view = RunningShoesCollectionView()
-        title = "Running Shoes"
-        view.backgroundColor = .white
-        view.collectionView.dataSource = self
-        view.collectionView.delegate = self
         return view
     }()
     
@@ -37,8 +33,13 @@ class CollectionViewController: UIViewController {
     // MARK: - Private Method
     
     private func setupView() {
+        title = "Running Shoes"
+        view.backgroundColor = .white
+        
         view.addSubview(contentView)
         contentView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.collectionView.dataSource = self
+        contentView.collectionView.delegate = self
         
         NSLayoutConstraint.activate([
             contentView.topAnchor.constraint(equalTo: view.topAnchor),
