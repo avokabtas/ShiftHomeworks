@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol IDetailViewController: AnyObject {
+protocol IDetailUI: AnyObject {
     func present(_ viewController: UIViewController, animated: Bool)
     func configureView(with runningShoes: RunningShoes)
 }
@@ -60,9 +60,9 @@ extension DetailViewController: DetailViewDelegate {
     }
 }
 
-// MARK: - IDetailViewController
+// MARK: - IDetailUI
 
-extension DetailViewController: IDetailViewController {
+extension DetailViewController: IDetailUI {
     func present(_ viewController: UIViewController, animated: Bool) {
         super.present(viewController, animated: true)
     }
