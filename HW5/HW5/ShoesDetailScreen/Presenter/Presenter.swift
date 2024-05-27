@@ -46,6 +46,6 @@ class Presenter: IPresenter {
     func orderButtonTapped() {
         let viewModel = ViewModel()
         let orderModalVC = OrderViewController(viewModel: viewModel)
-        ui?.present(orderModalVC, animated: true)
+        ui?.show(orderModalVC, animated: true)
     }
 }

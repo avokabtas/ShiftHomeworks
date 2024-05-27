@@ -8,7 +8,7 @@
 import UIKit
 
 protocol IDetailUI: AnyObject {
-    func present(_ viewController: UIViewController, animated: Bool)
+    func show(_ viewController: UIViewController, animated: Bool)
     func configureView(with runningShoes: RunningShoes)
 }
 
@@ -63,8 +63,8 @@ extension DetailViewController: DetailViewDelegate {
 // MARK: - IDetailUI
 
 extension DetailViewController: IDetailUI {
-    func present(_ viewController: UIViewController, animated: Bool) {
-        super.present(viewController, animated: true)
+    func show(_ viewController: UIViewController, animated: Bool) {
+        present(viewController, animated: true)
     }
     
     func configureView(with runningShoes: RunningShoes) {
