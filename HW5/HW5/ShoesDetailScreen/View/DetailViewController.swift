@@ -20,8 +20,8 @@ class DetailViewController: UIViewController {
     
     // MARK: - Init
     
-    init(runningShoes: RunningShoes) {
-        self.presenter = Presenter(runningShoes: runningShoes)
+    init(presenter: IPresenter) {
+        self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
         presenter.setView(self)
     }

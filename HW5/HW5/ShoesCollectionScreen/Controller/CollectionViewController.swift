@@ -72,7 +72,8 @@ extension CollectionViewController: UICollectionViewDataSource {
 extension CollectionViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedRunningShoes = runningShoesData[indexPath.item]
-        let detailViewController = DetailViewController(runningShoes: selectedRunningShoes)
+        let presenter = Presenter(runningShoes: selectedRunningShoes)
+        let detailViewController = DetailViewController(presenter: presenter)
         navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
