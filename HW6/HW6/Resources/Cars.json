@@ -1,0 +1,109 @@
+{
+  "cars": [
+    {
+      "brand": "BMW",
+      "bodyTypes": {
+        "Sedan": {
+          "price": "45000$",
+          "photo": "bmw_sedan.jpg"
+        },
+        "Hatchback": {
+          "price": "35000$",
+          "photo": "bmw_hatchback.jpg"
+        },
+        "Wagon": {
+          "price": "40000$",
+          "photo": "bmw_wagon.jpg"
+        },
+        "Crossover": {
+          "price": "70000$",
+          "photo": "bmw_crossover.jpg"
+        }
+      }
+    },
+    {
+      "brand": "Audi",
+      "bodyTypes": {
+        "Sedan": {
+          "price": "42000$",
+          "photo": "audi_sedan.jpg"
+        },
+        "Hatchback": {
+          "price": "40000$",
+          "photo": "audi_hatchback.jpg"
+        },
+        "Wagon": {
+          "price": "37000$",
+          "photo": "audi_wagon.jpg"
+        },
+        "Crossover": {
+          "price": "65000$",
+          "photo": "audi_crossover.jpg"
+        }
+      }
+    },
+    {
+      "brand": "Honda",
+      "bodyTypes": {
+        "Sedan": {
+          "price": "20000$",
+          "photo": "honda_sedan.jpg"
+        },
+        "Hatchback": {
+          "price": "15000$",
+          "photo": "honda_hatchback.jpg"
+        },
+        "Wagon": {
+          "price": "17000$",
+          "photo": "honda_wagon.jpg"
+        },
+        "Crossover": {
+          "price": "40000$",
+          "photo": "honda_crossover.jpg"
+        }
+      }
+    },
+    {
+      "brand": "Mazda",
+      "bodyTypes": {
+        "Sedan": {
+          "price": "35000$",
+          "photo": "mazda_sedan.jpg"
+        },
+        "Hatchback": {
+          "price": "20000$",
+          "photo": "mazda_hatchback.jpg"
+        },
+        "Wagon": {
+          "price": "15000$",
+          "photo": "mazda_wagon.jpg"
+        },
+        "Crossover": {
+          "price": "50000$",
+          "photo": "mazda_crossover.jpg"
+        }
+      }
+    },
+    {
+      "brand": "Toyota",
+      "bodyTypes": {
+        "Sedan": {
+          "price": "25000$",
+          "photo": "toyota_sedan.jpg"
+        },
+        "Hatchback": {
+          "price": "20000$",
+          "photo": "toyota_hatchback.jpg"
+        },
+        "Wagon": {
+          "price": "15000$",
+          "photo": "toyota_wagon.jpg"
+        },
+        "Crossover": {
+          "price": "40000$",
+          "photo": "toyota_crossover.jpg"
+        }
+      }
+    }
+  ]
+}
