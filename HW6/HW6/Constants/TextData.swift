@@ -8,7 +8,8 @@
 import Foundation
 
 enum TextData: String {
-    case mainTitle = "Выберите марку машины"
+    case mainTitle = "Выберите"
+    case carBrandTitle = "Марку машины"
     case price = "Цена"
     case bodyType = "Выберите тип кузова"
     case buttonName = "Рассчитать цену"

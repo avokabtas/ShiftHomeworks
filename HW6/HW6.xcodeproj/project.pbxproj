@@ -22,7 +22,7 @@
 		865CD7C92C05A3D000D7E9C6 /* CarDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865CD7C82C05A3D000D7E9C6 /* CarDetailView.swift */; };
 		865CD7CB2C05A94B00D7E9C6 /* DetailViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865CD7CA2C05A94B00D7E9C6 /* DetailViewDelegate.swift */; };
 		865CD7CE2C05B7C700D7E9C6 /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865CD7CD2C05B7C700D7E9C6 /* Assembly.swift */; };
-		865CD7D02C05C62700D7E9C6 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865CD7CF2C05C62700D7E9C6 /* Fonts.swift */; };
+		865CD7D02C05C62700D7E9C6 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865CD7CF2C05C62700D7E9C6 /* Font.swift */; };
 		865CD7D32C05C68E00D7E9C6 /* TextData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865CD7D22C05C68E00D7E9C6 /* TextData.swift */; };
 		865CD7D52C05C6DE00D7E9C6 /* Colour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865CD7D42C05C6DE00D7E9C6 /* Colour.swift */; };
 		865CD7D72C05D7E500D7E9C6 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865CD7D62C05D7E500D7E9C6 /* DetailTableViewCell.swift */; };
@@ -47,7 +47,7 @@
 		865CD7C82C05A3D000D7E9C6 /* CarDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailView.swift; sourceTree = "<group>"; };
 		865CD7CA2C05A94B00D7E9C6 /* DetailViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewDelegate.swift; sourceTree = "<group>"; };
 		865CD7CD2C05B7C700D7E9C6 /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
-		865CD7CF2C05C62700D7E9C6 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		865CD7CF2C05C62700D7E9C6 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		865CD7D22C05C68E00D7E9C6 /* TextData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextData.swift; sourceTree = "<group>"; };
 		865CD7D42C05C6DE00D7E9C6 /* Colour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colour.swift; sourceTree = "<group>"; };
 		865CD7D62C05D7E500D7E9C6 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
@@ -182,7 +182,7 @@
 		865CD7D12C05C63200D7E9C6 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				865CD7CF2C05C62700D7E9C6 /* Fonts.swift */,
+				865CD7CF2C05C62700D7E9C6 /* Font.swift */,
 				865CD7D22C05C68E00D7E9C6 /* TextData.swift */,
 				865CD7D42C05C6DE00D7E9C6 /* Colour.swift */,
 			);
@@ -264,7 +264,7 @@
 				865CD7D92C05F95800D7E9C6 /* CarListTableViewCell.swift in Sources */,
 				865CD7A12C044E0900D7E9C6 /* CarListViewController.swift in Sources */,
 				865CD7C32C059B5F00D7E9C6 /* CarListView.swift in Sources */,
-				865CD7D02C05C62700D7E9C6 /* Fonts.swift in Sources */,
+				865CD7D02C05C62700D7E9C6 /* Font.swift in Sources */,
 				865CD7C12C05995700D7E9C6 /* CarDetailPresenter.swift in Sources */,
 				865CD7BD2C0472DB00D7E9C6 /* CarListPresenter.swift in Sources */,
 				865CD7D32C05C68E00D7E9C6 /* TextData.swift in Sources */,

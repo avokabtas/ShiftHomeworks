@@ -43,13 +43,11 @@ class CarListTableViewCell: UITableViewCell {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            circleImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            circleImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            circleImageView.widthAnchor.constraint(equalToConstant: 24),
-            circleImageView.heightAnchor.constraint(equalToConstant: 24),
+            circleImageView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            circleImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             
             brandLabel.leadingAnchor.constraint(equalTo: circleImageView.trailingAnchor, constant: 16),
-            brandLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
+            brandLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor)
         ])
     }
     

@@ -36,7 +36,7 @@ class CarDetailView: UIView {
     private let priceTitleLabel: UILabel = {
         let label = UILabel()
         label.text = TextData.price.rawValue
-        label.font = Fonts.title
+        label.font = Font.title
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -51,7 +51,7 @@ class CarDetailView: UIView {
     private let bodyTypeLabel: UILabel = {
         let label = UILabel()
         label.text = TextData.bodyType.rawValue
-        label.font = Fonts.title
+        label.font = Font.title
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
