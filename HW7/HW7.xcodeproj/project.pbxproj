@@ -63,7 +63,7 @@
 				865CD7FC2C0740E200D7E9C6 /* App */,
 				865CD8002C09A26E00D7E9C6 /* Model */,
 				865CD7FD2C0740E900D7E9C6 /* View */,
-				865CD8052C09A66B00D7E9C6 /* Presenter */,
+				865CD8092C0B0B1D00D7E9C6 /* Presenter */,
 				865CD7F12C06F8D900D7E9C6 /* Assets.xcassets */,
 				865CD7F32C06F8D900D7E9C6 /* LaunchScreen.storyboard */,
 				865CD7F62C06F8D900D7E9C6 /* Info.plist */,
@@ -98,7 +98,7 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		865CD8052C09A66B00D7E9C6 /* Presenter */ = {
+		865CD8092C0B0B1D00D7E9C6 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
 			);
