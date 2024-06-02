@@ -9,13 +9,15 @@ import Foundation
 import UIKit.UIImage
 
 final class ImageLoader {
-    weak var delegate: ImageLoaderDelegate?
+    weak var delegate: IImageLoaderDelegate?
     private var dataTask: URLSessionDataTask?
     private let session = URLSession.shared
     private static let cache = NSCache<NSURL, UIImage>()
     
+    // TODO: Убрать Debug принты
+    
     func loadImageFromURL(query: String) {
-        guard let url = APIManager.getImageURL(query: query) else {
+        guard let url = APIManager.getURL(with: query) else {
             delegate?.didFailWithError("Invalid URL")
             return
         }
