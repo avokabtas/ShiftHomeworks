@@ -11,6 +11,6 @@ struct Photo: Decodable {
     let urls: Urls
     
     struct Urls: Decodable {
-        let regular: String
+        let small: String
     }
 }

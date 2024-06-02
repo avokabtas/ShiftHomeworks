@@ -6,68 +6,93 @@
 //
 
 import Foundation
-import UIKit
+import UIKit.UIImage
 
 final class ImageLoader {
-    
+    weak var delegate: ImageLoaderDelegate?
+    private var dataTask: URLSessionDataTask?
     private let session = URLSession.shared
     private static let cache = NSCache<NSURL, UIImage>()
     
-    func loadImageFromURL() {
-        guard let url = APIManager.getImageURL() else { return }
+    func loadImageFromURL(query: String) {
+        guard let url = APIManager.getImageURL(query: query) else {
+            delegate?.didFailWithError("Invalid URL")
+            return
+        }
         
-        session.dataTask(with: url) { data, response, error in
-            guard let data = data else {
-                print("No data received")
+        print("URL: \(url.absoluteString)") // Debug
+        
+        dataTask = session.dataTask(with: url) { [weak self] data, response, error in
+            if let error = error {
+                self?.delegate?.didFailWithError(error.localizedDescription)
                 return
             }
             
-            guard let httpResponse = response as? HTTPURLResponse else {
-                print("Invalid response")
-                return
-            }
-            
-            if !(200..<300).contains(httpResponse.statusCode) {
-                print("Unexpected status code: \(httpResponse.statusCode)")
+            guard let data = data, let httpResponse = response as? HTTPURLResponse,
+                  (200..<300).contains(httpResponse.statusCode) else {
+                self?.delegate?.didFailWithError("Invalid response")
                 return
             }
             
             do {
                 let decoder = JSONDecoder()
                 let photo = try decoder.decode(Photo.self, from: data)
-                self.fetchImage(from: photo.urls.regular)
+                print("Photo JSON decoded successfully: \(photo)") // Debug
+                self?.fetchImage(from: photo.urls.small)
             } catch {
-                print("Error parsing JSON: \(error.localizedDescription)")
+                self?.delegate?.didFailWithError("Error parsing JSON: \(error.localizedDescription)")
             }
-            
-        }.resume()
+        }
+        dataTask?.resume()
+    }
+    
+    func pauseLoading() {
+        dataTask?.suspend()
+    }
+    
+    func resumeLoading() {
+        dataTask?.resume()
     }
     
     private func fetchImage(from urlJSON: String) {
-        guard let url = URL(string: urlJSON) else { return }
+        guard let url = URL(string: urlJSON) else {
+            delegate?.didFailWithError("Invalid image URL")
+            return
+        }
+        print("Image URL: \(url.absoluteString)") // Debug
         
         // Сначала проверяем наличие закэшированного изображения в NSCache
         if let cachedImage = ImageLoader.cache.object(forKey: url as NSURL) {
+            print("Using cached image") // Debug output
             DispatchQueue.main.async {
-                // Тут надо подумать как сделать
-                //self.image = cachedImage
+                self.delegate?.didLoadImage(cachedImage)
             }
         } else {
             // И только потом отправляем запрос на загрузку изображения в случае отсутствия кэша
-            session.dataTask(with: url) { data, response, error in
-                guard let data = data, let loadedImage = UIImage(data: data) else {
-                    print("Error fetching image data")
+            let task = session.dataTask(with: url) { [weak self] data, response, error in
+                
+                if let error = error {
+                    print("Error fetching image: \(error.localizedDescription)") // Debug
+                    self?.delegate?.didFailWithError(error.localizedDescription)
                     return
                 }
+                
+                guard let data = data, let loadedImage = UIImage(data: data) else {
+                    print("No image data") // Debug
+                    print("Unable to create image from data") // Debug
+                    self?.delegate?.didFailWithError("Error fetching image data")
+                    return
+                }
+                
                 // Сохраняем загруженное изображение в NSCache
                 ImageLoader.cache.setObject(loadedImage, forKey: url as NSURL)
+                
+                print("Image loaded and cached") // Debug
                 DispatchQueue.main.async {
-                    // Тут надо подумать как сделать
-                   // self.image = loadedImage
+                    self?.delegate?.didLoadImage(loadedImage)
                 }
-            }.resume()
+            }
+            task.resume()
         }
-        
     }
-    
 }
