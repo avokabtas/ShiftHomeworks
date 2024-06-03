@@ -52,6 +52,8 @@ extension Presenter: IImageLoaderDelegate {
     }
     
     func didUpdateProgress(_ progress: Float) {
-        ui?.showLoadingProgress(progress)
+        DispatchQueue.main.async {
+            self.ui?.showLoadingProgress(progress)
+        }
     }
 }

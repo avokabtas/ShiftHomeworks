@@ -15,12 +15,6 @@ protocol IImageListUI: AnyObject {
 
 class ImageListViewController: UIViewController {
     
-    //    // TODO: Все работает и грузится, надо сделать UI
-    //    // - отдельно в ImageListView() ✅
-    //    // - кастомная ячейка ✅
-    //    // - многопоточность, когда вводишь неверный запрос а-ля "аарыф" - должна быть ошибка, сейчас краш ✅
-    //    // - прогресс вью
-    
     private var presenter: IPresenter
     private var imageListView = ImageListView()
     private var images: [UIImage] = []
@@ -61,16 +55,19 @@ extension ImageListViewController: IImageListUI {
     func showImages(_ images: [UIImage]) {
         self.images = images
         imageListView.tableView.reloadData()
+        imageListView.progressView.isHidden = true
     }
     
     func showError(_ error: String) {
         let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true)
+        imageListView.progressView.isHidden = true
     }
     
     func showLoadingProgress(_ progress: Float) {
-        print("Loading progress: \(progress)")
+        imageListView.progressView.isHidden = false
+        imageListView.progressView.progress = progress
     }
 }
 
@@ -79,6 +76,8 @@ extension ImageListViewController: IImageListUI {
 extension ImageListViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let query = searchBar.text, !query.isEmpty else { return }
+        imageListView.progressView.progress = 0
+        imageListView.progressView.isHidden = false
         presenter.searchImages(for: query)
     }
 }

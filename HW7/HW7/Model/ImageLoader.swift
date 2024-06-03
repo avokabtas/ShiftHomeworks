@@ -8,11 +8,20 @@
 import Foundation
 import UIKit.UIImage
 
-final class ImageLoader {
+final class ImageLoader: NSObject {
     weak var delegate: IImageLoaderDelegate?
     private var dataTask: URLSessionDataTask?
-    private let session = URLSession.shared
+    private var session: URLSession
     private static let cache = NSCache<NSURL, UIImage>()
+    private var totalBytesExpected: Int64 = 0
+    private var totalBytesReceived: Int64 = 0
+    
+    override init() {
+        let configuration = URLSessionConfiguration.default
+        self.session = URLSession(configuration: configuration, delegate: nil, delegateQueue: .main)
+        super.init()
+        self.session = URLSession(configuration: configuration, delegate: self, delegateQueue: .main)
+    }
     
     func loadImageFromURL(query: String) {
         guard let url = APIManager.getURL(with: query) else {
@@ -72,27 +81,44 @@ final class ImageLoader {
                 self.delegate?.didLoadImage(cachedImage)
             }
         } else {
-            let task = session.dataTask(with: url) { [weak self] data, response, error in
+            totalBytesExpected = 0
+            totalBytesReceived = 0
+            dataTask = session.dataTask(with: url)
+            dataTask?.resume()
+        }
+    }
+}
+
+extension ImageLoader: URLSessionDataDelegate {
+    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Void) {
+        totalBytesExpected = response.expectedContentLength
+        totalBytesReceived = 0
+        completionHandler(.allow)
+    }
+    
+    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
+        totalBytesReceived += Int64(data.count)
+        let progress = Float(totalBytesReceived) / Float(totalBytesExpected)
+        delegate?.didUpdateProgress(progress)
+    }
+    
+    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
+        if let error = error {
+            delegate?.didFailWithError(error.localizedDescription)
+        } else if let url = task.originalRequest?.url {
+            let dataTask = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
                 if let error = error {
                     DispatchQueue.main.async {
                         self?.delegate?.didFailWithError(error.localizedDescription)
                     }
-                    return
-                }
-                
-                guard let data = data, let loadedImage = UIImage(data: data) else {
+                } else if let data = data, let loadedImage = UIImage(data: data) {
+                    ImageLoader.cache.setObject(loadedImage, forKey: url as NSURL)
                     DispatchQueue.main.async {
-                        self?.delegate?.didFailWithError(NetworkError.invalidFetchingData.rawValue)
+                        self?.delegate?.didLoadImage(loadedImage)
                     }
-                    return
-                }
-                
-                ImageLoader.cache.setObject(loadedImage, forKey: url as NSURL)
-                DispatchQueue.main.async {
-                    self?.delegate?.didLoadImage(loadedImage)
                 }
             }
-            task.resume()
+            dataTask.resume()
         }
     }
 }
