@@ -44,9 +44,11 @@ extension Presenter: IImageLoaderDelegate {
         images.append(image)
         ui?.showImages(images)
     }
-    
+
     func didFailWithError(_ error: String) {
-        ui?.showError(error)
+        DispatchQueue.main.async {
+            self.ui?.showError(error)
+        }
     }
     
     func didUpdateProgress(_ progress: Float) {

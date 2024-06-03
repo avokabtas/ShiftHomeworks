@@ -15,11 +15,11 @@ protocol IImageListUI: AnyObject {
 
 class ImageListViewController: UIViewController {
     
-    // TODO: Все работает и грузится, надо сделать UI
-    // - отдельно в ImageListView() ✅
-    // - кастомная ячейка
-    // - многопоточность, когда вводишь неверный запрос а-ля "аарыф" - должна быть ошибка, сейчас краш
-    // - прогресс вью
+    //    // TODO: Все работает и грузится, надо сделать UI
+    //    // - отдельно в ImageListView() ✅
+    //    // - кастомная ячейка ✅
+    //    // - многопоточность, когда вводишь неверный запрос а-ля "аарыф" - должна быть ошибка, сейчас краш ✅
+    //    // - прогресс вью
     
     private var presenter: IPresenter
     private var imageListView = ImageListView()
@@ -70,7 +70,6 @@ extension ImageListViewController: IImageListUI {
     }
     
     func showLoadingProgress(_ progress: Float) {
-        // Тут надо обновлять прогресс вью
         print("Loading progress: \(progress)")
     }
 }
@@ -92,8 +91,10 @@ extension ImageListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ImageListViewCell.identifier, for: indexPath)
-        cell.imageView?.image = images[indexPath.row]
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ImageListViewCell.identifier, for: indexPath) as? ImageListViewCell else {
+            return UITableViewCell()
+        }
+        cell.configure(with: images[indexPath.row])
         return cell
     }
 }

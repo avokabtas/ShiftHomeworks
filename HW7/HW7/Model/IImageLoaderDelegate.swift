@@ -8,8 +8,13 @@
 import Foundation
 import UIKit.UIImage
 
+//protocol IImageLoaderDelegate: AnyObject {
+//    func didLoadImage(_ image: UIImage)
+//    func didFailWithError(_ error: String)
+//    func didUpdateProgress(_ progress: Float)
+//}
+
 protocol IImageLoaderDelegate: AnyObject {
     func didLoadImage(_ image: UIImage)
     func didFailWithError(_ error: String)
-    func didUpdateProgress(_ progress: Float)
 }
