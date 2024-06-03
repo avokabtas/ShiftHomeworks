@@ -26,8 +26,8 @@ class ImageListView: UIView {
         let progressView = UIProgressView(progressViewStyle: .default)
         progressView.translatesAutoresizingMaskIntoConstraints = false
         progressView.isHidden = true
-        progressView.progressTintColor = .magenta
-        progressView.trackTintColor = .gray
+        progressView.progressTintColor = Colour.progressColour
+        progressView.trackTintColor = Colour.progressBackgroundColour
         return progressView
     }()
     

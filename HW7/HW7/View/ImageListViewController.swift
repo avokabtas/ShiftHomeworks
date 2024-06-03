@@ -35,15 +35,11 @@ class ImageListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupSearchBarView()
-        setupTableView()
+        setupView()
     }
     
-    private func setupSearchBarView() {
+    private func setupView() {
         imageListView.searchBar.delegate = self
-    }
-    
-    private func setupTableView() {
         imageListView.tableView.dataSource = self
         imageListView.tableView.register(ImageListViewCell.self, forCellReuseIdentifier: ImageListViewCell.identifier)
     }

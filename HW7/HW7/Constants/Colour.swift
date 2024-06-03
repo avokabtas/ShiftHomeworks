@@ -9,4 +9,6 @@ import UIKit.UIColor
 
 enum Colour {
     static let backgroundColour: UIColor = .white
+    static let progressColour: UIColor = .magenta
+    static let progressBackgroundColour: UIColor = .gray
 }
