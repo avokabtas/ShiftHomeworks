@@ -16,26 +16,14 @@ protocol IImageListUI: AnyObject {
 class ImageListViewController: UIViewController {
     
     // TODO: Все работает и грузится, надо сделать UI
-    // - отдельно в ImageListView()
+    // - отдельно в ImageListView() ✅
     // - кастомная ячейка
     // - многопоточность, когда вводишь неверный запрос а-ля "аарыф" - должна быть ошибка, сейчас краш
     // - прогресс вью
     
     private var presenter: IPresenter
-    // private var imageListView = ImageListView()
+    private var imageListView = ImageListView()
     private var images: [UIImage] = []
-    
-    private let searchBar: UISearchBar = {
-        let searchBar = UISearchBar()
-        searchBar.placeholder = "Search for images"
-        return searchBar
-    }()
-    
-    private let tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        return tableView
-    }()
     
     init(presenter: IPresenter) {
         self.presenter = presenter
@@ -47,40 +35,32 @@ class ImageListViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func loadView() {
+        view = imageListView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+        setupSearchBarView()
+        setupTableView()
     }
     
-    private func setupUI() {
-        view.backgroundColor = .white
-        searchBar.delegate = self
-        tableView.dataSource = self
-        
-        view.addSubview(searchBar)
-        view.addSubview(tableView)
-        
-        searchBar.translatesAutoresizingMaskIntoConstraints = false
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            
-            tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
+    private func setupSearchBarView() {
+        imageListView.searchBar.delegate = self
     }
     
+    private func setupTableView() {
+        imageListView.tableView.dataSource = self
+        imageListView.tableView.register(ImageListViewCell.self, forCellReuseIdentifier: ImageListViewCell.identifier)
+    }
 }
+
+// MARK: - IImageListUI
 
 extension ImageListViewController: IImageListUI {
     func showImages(_ images: [UIImage]) {
         self.images = images
-        tableView.reloadData()
+        imageListView.tableView.reloadData()
     }
     
     func showError(_ error: String) {
@@ -95,6 +75,8 @@ extension ImageListViewController: IImageListUI {
     }
 }
 
+// MARK: - UISearchBarDelegate
+
 extension ImageListViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let query = searchBar.text, !query.isEmpty else { return }
@@ -102,13 +84,15 @@ extension ImageListViewController: UISearchBarDelegate {
     }
 }
 
+// MARK: - UITableViewDataSource
+
 extension ImageListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return images.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: ImageListViewCell.identifier, for: indexPath)
         cell.imageView?.image = images[indexPath.row]
         return cell
     }
