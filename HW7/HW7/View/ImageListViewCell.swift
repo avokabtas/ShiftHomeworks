@@ -44,8 +44,7 @@ class ImageListViewCell: UITableViewCell {
             customImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
             customImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             customImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
-            //customImageView.widthAnchor.constraint(equalToConstant: 200),
-            //customImageView.heightAnchor.constraint(equalToConstant: 200),
+            customImageView.heightAnchor.constraint(equalToConstant: 400),
         ])
     }
 }

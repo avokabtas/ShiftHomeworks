@@ -46,7 +46,6 @@ class ImageListView: UIView {
         backgroundColor = Colour.backgroundColour
         addSubview(searchBar)
         addSubview(tableView)
-        addSubview(progressView)
     }
     
     private func setupConstraints() {
@@ -59,10 +58,6 @@ class ImageListView: UIView {
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
-            
-            progressView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            progressView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            progressView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 34),
         ])
     }
 }
