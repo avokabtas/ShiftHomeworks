@@ -90,7 +90,10 @@ final class ImageLoader: NSObject {
 }
 
 extension ImageLoader: URLSessionDataDelegate {
-    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Void) {
+    func urlSession(_ session: URLSession, 
+                    dataTask: URLSessionDataTask,
+                    didReceive response: URLResponse,
+                    completionHandler: @escaping (URLSession.ResponseDisposition) -> Void) {
         totalBytesExpected = response.expectedContentLength
         totalBytesReceived = 0
         completionHandler(.allow)

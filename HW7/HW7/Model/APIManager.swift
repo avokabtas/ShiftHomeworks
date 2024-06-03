@@ -10,12 +10,17 @@ import Foundation
 struct APIManager {
     private static let accessKey = "8bV0i2CoWmqgSMjcVojM1ZW4il-Sb2DSHZS7KohRsm4"
     
-    ///  Есть лимиты
-    // br6g-SRkWN7npMmaymet1qrxH-IcyMkEl4WoavSg-pM
-    // 8bV0i2CoWmqgSMjcVojM1ZW4il-Sb2DSHZS7KohRsm4
-    
     static func getURL(with query: String) -> URL? {
         let urlString = "https://api.unsplash.com/photos/random?query=\(query)&client_id=\(accessKey)"
         return URL(string: urlString)
     }
 }
+
+/*
+ 
+ Есть лимиты:
+ 
+ br6g-SRkWN7npMmaymet1qrxH-IcyMkEl4WoavSg-pM
+ 8bV0i2CoWmqgSMjcVojM1ZW4il-Sb2DSHZS7KohRsm4
+ 
+ */

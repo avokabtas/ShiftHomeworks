@@ -11,7 +11,7 @@ class ImageListView: UIView {
     
     let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
-        searchBar.placeholder = "Search for images"
+        searchBar.placeholder = TextData.searchTitle.rawValue
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         return searchBar
     }()
@@ -46,6 +46,7 @@ class ImageListView: UIView {
         backgroundColor = Colour.backgroundColour
         addSubview(searchBar)
         addSubview(tableView)
+        addSubview(progressView)
     }
     
     private func setupConstraints() {
