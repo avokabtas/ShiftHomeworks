@@ -37,6 +37,7 @@ class ImageListViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         setupNavigationBar()
+        setupGestureToHideKeyboard()
     }
     
     private func setupView() {
@@ -50,6 +51,16 @@ class ImageListViewController: UIViewController {
         let pauseButton = UIBarButtonItem(barButtonSystemItem: .pause, target: self, action: #selector(pauseLoading))
         let resumeButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(resumeLoading))
         navigationItem.rightBarButtonItems = [pauseButton, resumeButton]
+    }
+    
+    private func setupGestureToHideKeyboard() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        tapGesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc private func hideKeyboard() {
+        view.endEditing(true)
     }
     
     func setupTitleNavigationBar() {
@@ -103,6 +114,7 @@ extension ImageListViewController: UISearchBarDelegate {
         imageListView.progressView.isHidden = false
         setupProgressView()
         presenter.searchImages(for: query)
+        searchBar.resignFirstResponder()
     }
 }
 
