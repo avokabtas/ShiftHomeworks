@@ -10,13 +10,28 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    
+    
+    
+    // MARK: - Данная HW8 выполнена на лекции и практике.
+    // Это заглушки-черновики. Можно будет еще раз пройти и сделать.
+    
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
         
-        window.rootViewController = ViewController()
+        // Сделать модель
+        
+        let presenter = CompanyPresenter()
+        
+        let viewController = CompanyViewController(presenter: presenter)
+        //presenter.ui = viewController
+        
+        let navigationController = UINavigationController(rootViewController: viewController)
+        
+        window.rootViewController = navigationController
         window.makeKeyAndVisible()
         self.window = window
         
