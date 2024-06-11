@@ -13,8 +13,8 @@ final class ImageLoader: NSObject {
     private var dataTask: URLSessionDataTask?
     private var session: URLSession
     private static let cache = NSCache<NSURL, UIImage>()
-    private var totalBytesExpected: Int64 = 0
-    private var totalBytesReceived: Int64 = 0
+    private var totalBytesExpected: Int = 0
+    private var totalBytesReceived: Int = 0
     
     override init() {
         let configuration = URLSessionConfiguration.default
@@ -94,13 +94,13 @@ extension ImageLoader: URLSessionDataDelegate {
                     dataTask: URLSessionDataTask,
                     didReceive response: URLResponse,
                     completionHandler: @escaping (URLSession.ResponseDisposition) -> Void) {
-        totalBytesExpected = response.expectedContentLength
+        totalBytesExpected = Int(response.expectedContentLength)
         totalBytesReceived = 0
         completionHandler(.allow)
     }
     
     func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
-        totalBytesReceived += Int64(data.count)
+        totalBytesReceived += Int(data.count)
         let progress = Float(totalBytesReceived) / Float(totalBytesExpected)
         delegate?.didUpdateProgress(progress)
     }
