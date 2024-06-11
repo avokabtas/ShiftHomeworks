@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         
         let imageLoader = ImageLoader()
-        let presenter = Presenter(ui: nil, imageLoader: imageLoader)
+        let presenter = ImageListPresenter(ui: nil, imageLoader: imageLoader)
         
         let viewController = ImageListViewController(presenter: presenter)
         presenter.ui = viewController

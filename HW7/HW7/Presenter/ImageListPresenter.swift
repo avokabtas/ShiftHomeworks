@@ -1,5 +1,5 @@
 //
-//  Presenter.swift
+//  ImageListPresenter.swift
 //  HW7
 //
 //  Created by Aliia Satbakova  on 02.06.2024.
@@ -8,13 +8,13 @@
 import Foundation
 import UIKit.UIImage
 
-protocol IPresenter: AnyObject {
+protocol IImageListPresenter: AnyObject {
     func searchImages(for query: String)
     func pauseImageLoad()
     func resumeImageLoad()
 }
 
-class Presenter: IPresenter {
+class ImageListPresenter: IImageListPresenter {
     
     weak var ui: IImageListUI?
     private var imageLoader: ImageLoader
@@ -39,7 +39,7 @@ class Presenter: IPresenter {
     }
 }
 
-extension Presenter: IImageLoaderDelegate {
+extension ImageListPresenter: IImageLoaderDelegate {
     func didLoadImage(_ image: UIImage) {
         images.append(image)
         ui?.showImages(images)

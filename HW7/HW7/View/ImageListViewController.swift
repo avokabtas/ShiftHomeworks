@@ -15,11 +15,11 @@ protocol IImageListUI: AnyObject {
 
 class ImageListViewController: UIViewController {
     
-    private var presenter: IPresenter
+    private var presenter: IImageListPresenter
     private var imageListView = ImageListView()
     private var images: [UIImage] = []
     
-    init(presenter: IPresenter) {
+    init(presenter: IImageListPresenter) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
