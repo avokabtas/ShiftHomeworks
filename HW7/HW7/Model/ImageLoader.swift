@@ -108,20 +108,25 @@ extension ImageLoader: URLSessionDataDelegate {
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
         if let error = error {
             delegate?.didFailWithError(error.localizedDescription)
-        } else if let url = task.originalRequest?.url {
-            let dataTask = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
-                if let error = error {
-                    DispatchQueue.main.async {
-                        self?.delegate?.didFailWithError(error.localizedDescription)
-                    }
-                } else if let data = data, let loadedImage = UIImage(data: data) {
-                    ImageLoader.cache.setObject(loadedImage, forKey: url as NSURL)
-                    DispatchQueue.main.async {
-                        self?.delegate?.didLoadImage(loadedImage)
-                    }
-                }
-            }
-            dataTask.resume()
         }
+        
+        guard let url = task.originalRequest?.url else { return }
+        
+        let dataTask = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+            if let error = error {
+                DispatchQueue.main.async {
+                    self?.delegate?.didFailWithError(error.localizedDescription)
+                }
+                return
+            }
+            
+            guard let data = data, let loadedImage = UIImage(data: data) else { return }
+            
+            ImageLoader.cache.setObject(loadedImage, forKey: url as NSURL)
+            DispatchQueue.main.async {
+                self?.delegate?.didLoadImage(loadedImage)
+            }
+        }
+        dataTask.resume()
     }
 }
